@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Simple Blog Admin Panel</title>
+  <title>SaaS Engine Admin Panel</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
     h1, h2 {
       color: #333;
     }
-    #blog-posts {
+    #public-posts {
       margin-bottom: 2rem;
     }
     .post {
@@ -68,12 +68,19 @@
       color: #888;
       font-style: italic;
     }
+    .admin-post {
+      margin-bottom: 1rem;
+      border: 1px solid #eee;
+      padding: 1rem;
+      border-radius: 5px;
+      background: #fff;
+    }
   </style>
 </head>
 <body>
 
-  <h1>My Simple Blog</h1>
-  <div id="blog-posts"></div>
+  <h1>SaaS Engine Blog</h1>
+  <div id="public-posts"></div>
 
   <h2>Admin Panel</h2>
   <div class="admin-section">
@@ -96,38 +103,38 @@
   </div>
 
   <script>
-    // Sample initial posts
-    let blogPosts = [
+    // Initial posts data
+    let posts = [
       {
         id: 1,
-        title: "Welcome to the Blog!",
+        title: "Welcome to SaaS Engine!",
         author: "Admin",
         date: "2025-07-07",
-        content: "This is the first post on your new blog."
+        content: "This is the first post on your SaaS Engine blog. Explore, add, and manage your posts easily!"
       },
       {
         id: 2,
-        title: "Second Post",
+        title: "Second Post: Feature Highlight",
         author: "Jane Doe",
         date: "2025-07-07",
-        content: "Here's another post to show how things work."
+        content: "Our SaaS Engine now supports post removal! Try it in the admin panel below."
       }
     ];
 
-    // Utility to format date as YYYY-MM-DD
+    // Utility to format today's date as YYYY-MM-DD
     function getToday() {
       const d = new Date();
       return d.toISOString().slice(0, 10);
     }
 
-    // Render blog posts to main view
-    function renderBlogPosts() {
-      const container = document.getElementById('blog-posts');
-      if (blogPosts.length === 0) {
+    // Render public-facing blog posts
+    function renderPublicPosts() {
+      const container = document.getElementById('public-posts');
+      if (posts.length === 0) {
         container.innerHTML = '<p class="no-posts">No blog posts yet.</p>';
         return;
       }
-      container.innerHTML = blogPosts.map(post => `
+      container.innerHTML = posts.map(post => `
         <div class="post">
           <h3>${post.title}</h3>
           <p><em>By ${post.author} on ${post.date}</em></p>
@@ -136,22 +143,22 @@
       `).join('');
     }
 
-    // Render admin panel post list with remove buttons
+    // Render admin post list with remove buttons
     function renderAdminPosts() {
       const container = document.getElementById('admin-posts-list');
-      if (blogPosts.length === 0) {
+      if (posts.length === 0) {
         container.innerHTML = '<p class="no-posts">No posts available.</p>';
         return;
       }
-      container.innerHTML = blogPosts.map(post => `
-        <div style="margin-bottom: 1rem; border: 1px solid #eee; padding: 1rem; border-radius: 5px;">
+      container.innerHTML = posts.map(post => `
+        <div class="admin-post">
           <strong>${post.title}</strong> by ${post.author} on ${post.date}
           <button class="admin-btn remove-btn" onclick="removePost(${post.id})">Remove</button>
         </div>
       `).join('');
     }
 
-    // Add a new post
+    // Add new post
     function addPost(title, author, content) {
       const newPost = {
         id: Date.now(),
@@ -160,19 +167,20 @@
         date: getToday(),
         content
       };
-      blogPosts.unshift(newPost); // Add to start
-      renderBlogPosts();
+      posts.unshift(newPost); // Add to start
+      renderPublicPosts();
       renderAdminPosts();
     }
 
-    // Remove a post by ID
+    // Remove post by ID
     function removePost(postId) {
-      blogPosts = blogPosts.filter(post => post.id !== postId);
-      renderBlogPosts();
+      posts = posts.filter(post => post.id !== postId);
+      renderPublicPosts();
       renderAdminPosts();
     }
+    window.removePost = removePost; // Expose for inline onclick
 
-    // Handle new post form submission
+    // Handle new post form
     document.getElementById('new-post-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const title = document.getElementById('post-title').value.trim();
@@ -185,11 +193,8 @@
     });
 
     // Initial render
-    renderBlogPosts();
+    renderPublicPosts();
     renderAdminPosts();
-
-    // Expose removePost to global scope for inline onclick
-    window.removePost = removePost;
   </script>
 </body>
 </html>
