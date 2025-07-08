@@ -1,1191 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaaS Insights - Expert SaaS Tool Reviews & Comparisons</title>
-    <meta name="description" content="Expert reviews and comparisons of the best SaaS tools. Get unbiased insights to choose the right software for your business.">
-    <meta name="keywords" content="SaaS, software reviews, tool comparisons, business software, productivity tools">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="SaaS Insights - Expert SaaS Tool Reviews & Comparisons">
-    <meta property="og:description" content="Expert reviews and comparisons of the best SaaS tools. Get unbiased insights to choose the right software for your business.">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="SaaS Insights - Expert SaaS Tool Reviews & Comparisons">
-    <meta property="twitter:description" content="Expert reviews and comparisons of the best SaaS tools. Get unbiased insights to choose the right software for your business.">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-        
-        nav a:hover {
-            opacity: 0.8;
-        }
-        
-        /* Newsletter Signup */
-        .newsletter-hero {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .newsletter-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .newsletter-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 1rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .newsletter-form button {
-            padding: 1rem 2rem;
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .newsletter-form button:hover {
-            background: #ff5252;
-        }
-        
-        /* Main Content */
-        main {
-            padding: 3rem 0;
-        }
-        
-        .blog-grid {
-            display: grid;
-            gap: 3rem;
-        }
-        
-        .blog-post {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-        
-        .blog-post:hover {
-            transform: translateY(-5px);
-        }
-        
-        .post-header {
-            padding: 2rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .post-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        
-        .post-meta {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .post-content {
-            padding: 2rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .post-content h3 {
-            margin: 2rem 0 1rem;
-            color: #2c3e50;
-        }
-        
-        .post-content p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .post-content ul {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
-        }
-        
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .affiliate-notice {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 1rem;
-            margin: 2rem 0;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 1rem 0;
-            transition: transform 0.3s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
-        
-        /* Social Share */
-        .social-share {
-            padding: 2rem;
-            border-top: 1px solid #eee;
-            text-align: center;
-        }
-        
-        .social-share h4 {
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .share-btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-            transition: transform 0.3s;
-        }
-        
-        .share-btn:hover {
-            transform: scale(1.05);
-        }
-        
-        .share-twitter { background: #1da1f2; }
-        .share-linkedin { background: #0077b5; }
-        .share-facebook { background: #1877f2; }
-        
-        /* Comments */
-        .comments-section {
-            padding: 2rem;
-            border-top: 1px solid #eee;
-        }
-        
-        .comments-section h4 {
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-        }
-        
-        .comment-form {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 5px;
-            margin-bottom: 2rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background: #28a745;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background: #218838;
-        }
-        
-        .comment {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .comment-author {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        
-        .comment-date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Related Posts */
-        .related-posts {
-            padding: 2rem;
-            border-top: 1px solid #eee;
-            background: #f8f9fa;
-        }
-        
-        .related-posts h4 {
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-        }
-        
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .related-post {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .related-post h5 {
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-        
-        .related-post a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .related-post a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 3rem 0;
-            margin-top: 3rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: #4facfe;
-        }
-        
-        .footer-section p {
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-        
-        .footer-section a {
-            color: #4facfe;
-            text-decoration: none;
-        }
-        
-        .footer-section a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Admin Panel */
-        .admin-panel {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-        }
-        
-        .admin-content {
-            background: white;
-            width: 90%;
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            border-radius: 10px;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .admin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #eee;
-        }
-        
-        .close-admin {
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        
-        .admin-tabs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .admin-tab {
-            padding: 1rem 2rem;
-            background: #f8f9fa;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        
-        .admin-tab.active {
-            background: #667eea;
-            color: white;
-        }
-        
-        .admin-section {
-            display: none;
-        }
-        
-        .admin-section.active {
-            display: block;
-        }
-        
-        .admin-form {
-            display: grid;
-            gap: 1rem;
-        }
-        
-        .admin-form input,
-        .admin-form textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .admin-form textarea {
-            height: 200px;
-            resize: vertical;
-        }
-        
-        .admin-btn {
-            padding: 1rem 2rem;
-            background: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .admin-btn:hover {
-            background: #218838;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .newsletter-content h2 {
-                font-size: 2rem;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
-            
-            .post-title {
-                font-size: 1.5rem;
-            }
-            
-            .share-buttons {
-                flex-wrap: wrap;
-            }
-            
-            .related-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 5px;
-            margin: 1rem 0;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .error-message {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 1rem;
-            border-radius: 5px;
-            margin: 1rem 0;
-            border: 1px solid #f5c6cb;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Simple Blog Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: #f9f9f9;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    #blog-posts {
+      margin-bottom: 2rem;
+    }
+    .post {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+    .admin-section {
+      background: #f5f5f5;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 5px;
+      max-width: 500px;
+    }
+    .admin-btn {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      transition: background 0.2s;
+    }
+    .admin-btn:hover {
+      background: #0056b3;
+    }
+    .remove-btn {
+      background: #dc3545;
+    }
+    .remove-btn:hover {
+      background: #a71d2a;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .no-posts {
+      color: #888;
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">SaaS Insights</a>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#" onclick="openAdmin()">Admin</a></li>
-                    </ul>
-                </nav>
-            </div>
+
+  <h1>My Simple Blog</h1>
+  <div id="blog-posts"></div>
+
+  <h2>Admin Panel</h2>
+  <div class="admin-section">
+    <h3>Create New Post</h3>
+    <form id="new-post-form">
+      <label>Title
+        <input type="text" id="post-title" required>
+      </label>
+      <label>Author
+        <input type="text" id="post-author" required>
+      </label>
+      <label>Content
+        <textarea id="post-content" required rows="4"></textarea>
+      </label>
+      <button class="admin-btn" type="submit">Add Post</button>
+    </form>
+    <hr>
+    <h3>Manage Posts</h3>
+    <div id="admin-posts-list"></div>
+  </div>
+
+  <script>
+    // Sample initial posts
+    let blogPosts = [
+      {
+        id: 1,
+        title: "Welcome to the Blog!",
+        author: "Admin",
+        date: "2025-07-07",
+        content: "This is the first post on your new blog."
+      },
+      {
+        id: 2,
+        title: "Second Post",
+        author: "Jane Doe",
+        date: "2025-07-07",
+        content: "Here's another post to show how things work."
+      }
+    ];
+
+    // Utility to format date as YYYY-MM-DD
+    function getToday() {
+      const d = new Date();
+      return d.toISOString().slice(0, 10);
+    }
+
+    // Render blog posts to main view
+    function renderBlogPosts() {
+      const container = document.getElementById('blog-posts');
+      if (blogPosts.length === 0) {
+        container.innerHTML = '<p class="no-posts">No blog posts yet.</p>';
+        return;
+      }
+      container.innerHTML = blogPosts.map(post => `
+        <div class="post">
+          <h3>${post.title}</h3>
+          <p><em>By ${post.author} on ${post.date}</em></p>
+          <p>${post.content}</p>
         </div>
-    </header>
-    
-    <section class="newsletter-hero">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>Stay Ahead of the SaaS Game</h2>
-                <p>Get exclusive insights, reviews, and comparisons delivered to your inbox weekly</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" id="newsletter-email">
-                    <button onclick="subscribeNewsletter()">Subscribe Now</button>
-                </div>
-                <div id="newsletter-message"></div>
-            </div>
+      `).join('');
+    }
+
+    // Render admin panel post list with remove buttons
+    function renderAdminPosts() {
+      const container = document.getElementById('admin-posts-list');
+      if (blogPosts.length === 0) {
+        container.innerHTML = '<p class="no-posts">No posts available.</p>';
+        return;
+      }
+      container.innerHTML = blogPosts.map(post => `
+        <div style="margin-bottom: 1rem; border: 1px solid #eee; padding: 1rem; border-radius: 5px;">
+          <strong>${post.title}</strong> by ${post.author} on ${post.date}
+          <button class="admin-btn remove-btn" onclick="removePost(${post.id})">Remove</button>
         </div>
-    </section>
-    
-    <main>
-        <div class="container">
-            <div class="blog-grid" id="blog-posts">
-                <!-- Blog posts will be dynamically inserted here -->
-            </div>
-        </div>
-    </main>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section" id="about">
-                    <h4>About SaaS Insights</h4>
-                    <p>We provide in-depth, unbiased reviews and comparisons of the latest SaaS tools to help businesses make informed decisions. Our expert analysis covers everything from productivity suites to specialized industry software.</p>
-                    <p>Founded by industry professionals with years of experience in software evaluation and business optimization.</p>
-                </div>
-                <div class="footer-section" id="contact">
-                    <h4>Contact Us</h4>
-                    <p>Email: hello@saasinsights.com</p>
-                    <p>Business Inquiries: partnerships@saasinsights.com</p>
-                    <p>Follow us on social media for daily insights and updates.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Popular Reviews</h4>
-                    <p><a href="#">Slack vs Microsoft Teams</a></p>
-                    <p><a href="#">Notion vs Obsidian</a></p>
-                    <p><a href="#">Zoom vs Google Meet</a></p>
-                    <p><a href="#">Salesforce vs HubSpot</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Admin Panel -->
-    <div class="admin-panel" id="admin-panel">
-        <div class="admin-content">
-            <div class="admin-header">
-                <h2>Admin Panel</h2>
-                <button class="close-admin" onclick="closeAdmin()">Close</button>
-            </div>
-            
-            <div class="admin-tabs">
-                <button class="admin-tab active" onclick="showAdminSection('posts')">Manage Posts</button>
-                <button class="admin-tab" onclick="showAdminSection('comments')">Comments</button>
-                <button class="admin-tab" onclick="showAdminSection('subscribers')">Subscribers</button>
-            </div>
-            
-            <div id="admin-posts" class="admin-section active">
-                <h3>Create New Post</h3>
-                <div class="admin-form">
-                    <input type="text" id="post-title" placeholder="Post Title">
-                    <textarea id="post-content" placeholder="Post Content (HTML allowed)"></textarea>
-                    <input type="text" id="post-author" placeholder="Author Name">
-                    <button class="admin-btn" onclick="createPost()">Publish Post</button>
-                </div>
-                <div id="post-message"></div>
-            </div>
-            
-            <div id="admin-comments" class="admin-section">
-                <h3>Pending Comments</h3>
-                <div id="pending-comments"></div>
-            </div>
-            
-            <div id="admin-subscribers" class="admin-section">
-                <h3>Newsletter Subscribers</h3>
-                <div id="subscribers-list"></div>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        // Data storage
-        let blogPosts = [];
-        let comments = [];
-        let subscribers = [];
-        let pendingComments = [];
-        
-        // Initialize with sample data
-        function initializeSampleData() {
-            blogPosts = [
-                {
-                    id: 1,
-                    title: "Slack vs Microsoft Teams: The Ultimate Comparison for 2025",
-                    content: `
-                        <p>Choosing between Slack and Microsoft Teams can make or break your team's productivity. After testing both platforms extensively, I'll break down which one truly delivers the best value for different business needs.</p>
-                        
-                        <div class="affiliate-notice">
-                            <strong>Affiliate Disclosure:</strong> This post contains affiliate links. If you make a purchase through these links, I may earn a commission at no additional cost to you.
-                        </div>
-                        
-                        <h3>User Experience & Interface</h3>
-                        <p>Slack takes the crown for user experience. Its intuitive design and clean interface make it incredibly easy for teams to adopt. The learning curve is minimal, and even non-technical users can start being productive immediately.</p>
-                        
-                        <p>Microsoft Teams, while powerful, feels more cluttered and can be overwhelming for new users. However, if your team already uses Microsoft 365, the integration feels natural.</p>
-                        
-                        <h3>Pricing Comparison</h3>
-                        <p>Here's where things get interesting:</p>
-                        <ul>
-                            <li><strong>Slack:</strong> Free tier limited to 10,000 messages. Paid plans start at $7.25/user/month</li>
-                            <li><strong>Microsoft Teams:</strong> Free tier with 300 users. Included with Microsoft 365 Business Basic ($6/user/month)</li>
-                        </ul>
-                        
-                        <p>For organizations already using Microsoft 365, Teams provides incredible value. For standalone communication, Slack's pricing is competitive but can add up quickly.</p>
-                        
-                        <h3>Integration Capabilities</h3>
-                        <p>Slack's app directory is unmatched with over 2,000 integrations. From project management tools to customer support platforms, Slack connects with virtually everything.</p>
-                        
-                        <p>Teams excels in Microsoft ecosystem integration but lags behind in third-party connections. However, recent updates have significantly improved this gap.</p>
-                        
-                        <h3>Final Verdict</h3>
-                        <p>Choose <strong>Slack</strong> if you prioritize user experience, need extensive integrations, and want a dedicated communication platform.</p>
-                        
-                        <p>Choose <strong>Microsoft Teams</strong> if you're already in the Microsoft ecosystem, need advanced meeting features, and want an all-in-one solution.</p>
-                        
-                        <a href="#" class="cta-button">Try Slack Free for 30 Days</a>
-                        <a href="#" class="cta-button">Get Microsoft Teams</a>
-                    `,
-                    author: "Alex Johnson",
-                    date: "2025-01-15",
-                    timestamp: Date.now()
-                },
-                {
-                    id: 2,
-                    title: "Notion vs Obsidian: Which Note-Taking App Will Transform Your Productivity?",
-                    content: `
-                        <p>The battle between Notion and Obsidian has been heating up in the productivity space. Both tools promise to revolutionize how you organize information, but they take completely different approaches.</p>
-                        
-                        <div class="affiliate-notice">
-                            <strong>Affiliate Disclosure:</strong> This post contains affiliate links. If you make a purchase through these links, I may earn a commission at no additional cost to you.
-                        </div>
-                        
-                        <h3>The Philosophy Behind Each Tool</h3>
-                        <p>Notion positions itself as an all-in-one workspace. It's designed to replace multiple tools - your notes, databases, project management, and even basic websites can all live in Notion.</p>
-                        
-                        <p>Obsidian takes a different approach, focusing purely on note-taking but doing it exceptionally well. It's built around the concept of a "second brain" - connecting your thoughts through bi-directional links.</p>
-                        
-                        <h3>Performance and Speed</h3>
-                        <p>This is where the differences become stark:</p>
-                        <ul>
-                            <li><strong>Notion:</strong> Can feel sluggish with large databases or complex pages. Loading times increase with content size.</li>
-                            <li><strong>Obsidian:</strong> Lightning-fast local storage means instant search and quick navigation, even with thousands of notes.</li>
-                        </ul>
-                        
-                        <h3>Customization and Flexibility</h3>
-                        <p>Notion offers incredible flexibility through its block-based system. You can create custom databases, embed media, and build complex workflows without any coding knowledge.</p>
-                        
-                        <p>Obsidian's strength lies in its extensibility through plugins and themes. The community has created hundreds of plugins that can transform how you work with your notes.</p>
-                        
-                        <h3>Collaboration Features</h3>
-                        <p>Notion excels at real-time collaboration. Multiple users can edit simultaneously, leave comments, and track changes. It's perfect for team environments.</p>
-                        
-                        <p>Obsidian's collaboration features are more limited, though they've introduced sync capabilities for shared vaults.</p>
-                        
-                        <h3>My Recommendation</h3>
-                        <p>Choose <strong>Notion</strong> if you want an all-in-one solution, work with teams, and don't mind occasional performance hiccups.</p>
-                        
-                        <p>Choose <strong>Obsidian</strong> if you prioritize speed, love customization, and focus primarily on knowledge management and note-taking.</p>
-                        
-                        <a href="#" class="cta-button">Start with Notion Free</a>
-                        <a href="#" class="cta-button">Download Obsidian</a>
-                    `,
-                    author: "Sarah Chen",
-                    date: "2025-01-12",
-                    timestamp: Date.now() - 86400000 * 3
-                }
-            ];
-            
-            comments = [
-                {
-                    id: 1,
-                    postId: 1,
-                    author: "Mike Rodriguez",
-                    email: "mike@example.com",
-                    content: "Great comparison! We switched from Slack to Teams and the cost savings were significant.",
-                    date: "2025-01-16",
-                    approved: true
-                },
-                {
-                    id: 2,
-                    postId: 2,
-                    author: "Jennifer Kim",
-                    email: "jen@example.com",
-                    content: "I've been using Obsidian for 6 months now and can't imagine going back to traditional note-taking apps.",
-                    date: "2025-01-13",
-                    approved: true
-                }
-            ];
-            
-            subscribers = [
-                { email: "user1@example.com", date: "2025-01-10" },
-                { email: "user2@example.com", date: "2025-01-12" }
-            ];
-        }
-        
-        // Newsletter subscription
-        function subscribeNewsletter() {
-            const email = document.getElementById('newsletter-email').value;
-            const messageDiv = document.getElementById('newsletter-message');
-            
-            if (!email || !email.includes('@')) {
-                messageDiv.innerHTML = '<div class="error-message">Please enter a valid email address.</div>';
-                return;
-            }
-            
-            if (subscribers.some(sub => sub.email === email)) {
-                messageDiv.innerHTML = '<div class="error-message">This email is already subscribed.</div>';
-                return;
-            }
-            
-            subscribers.push({
-                email: email,
-                date: new Date().toISOString().split('T')[0]
-            });
-            
-            messageDiv.innerHTML = '<div class="success-message">Thanks for subscribing! You\'ll receive our weekly insights soon.</div>';
-            document.getElementById('newsletter-email').value = '';
-            
-            // Track subscription in analytics
-            gtag('event', 'subscribe', {
-                event_category: 'Newsletter',
-                event_label: 'Header Signup'
-            });
-        }
-        
-        // Blog post rendering
-        function renderBlogPosts() {
-            const container = document.getElementById('blog-posts');
-            container.innerHTML = '';
-            
-            blogPosts.sort((a, b) => b.timestamp - a.timestamp).forEach(post => {
-                const postDiv = document.createElement('div');
-                postDiv.className = 'blog-post';
-                postDiv.innerHTML = `
-                    <div class="post-header">
-                        <h2 class="post-title">${post.title}</h2>
-                        <div class="post-meta">By ${post.author} • ${post.date}</div>
-                    </div>
-                    <div class="post-content">${post.content}</div>
-                    <div class="social-share">
-                        <h4>Share this article</h4>
-                        <div class="share-buttons">
-                            <a href="#" class="share-btn share-twitter" onclick="shareOnTwitter('${post.title}')">Twitter</a>
-                            <a href="#" class="share-btn share-linkedin" onclick="shareOnLinkedIn('${post.title}')">LinkedIn</a>
-                            <a href="#" class="share-btn share-facebook" onclick="shareOnFacebook('${post.title}')">Facebook</a>
-                        </div>
-                    </div>
-                    <div class="comments-section">
-                        <h4>Comments</h4>
-                        <div class="comment-form">
-                            <div class="form-group">
-                                <label for="comment-name-${post.id}">Name</label>
-                                <input type="text" id="comment-name-${post.id}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="comment-email-${post.id}">Email</label>
-                                <input type="email" id="comment-email-${post.id}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="comment-content-${post.id}">Comment</label>
-                                <textarea id="comment-content-${post.id}" required></textarea>
-                            </div>
-                            <button class="submit-btn" onclick="submitComment(${post.id})">Submit Comment</button>
-                        </div>
-                        <div id="comments-${post.id}">
-                            ${renderComments(post.id)}
-                        </div>
-                    </div>
-                    <div class="related-posts">
-                        <h4>Related Articles</h4>
-                        <div class="related-grid">
-                            ${renderRelatedPosts(post.id)}
-                        </div>
-                    </div>
-                `;
-                container.appendChild(postDiv);
-            });
-        }
-        
-        // Comment rendering
-        function renderComments(postId) {
-            const postComments = comments.filter(comment => comment.postId === postId && comment.approved);
-            if (postComments.length === 0) {
-                return '<p>No comments yet. Be the first to share your thoughts!</p>';
-            }
-            
-            return postComments.map(comment => `
-                <div class="comment">
-                    <div class="comment-author">${comment.author}</div>
-                    <div class="comment-date">${comment.date}</div>
-                    <div class="comment-content">${comment.content}</div>
-                </div>
-            `).join('');
-        }
-        
-        // Related posts rendering
-        function renderRelatedPosts(currentPostId) {
-            const relatedPosts = blogPosts.filter(post => post.id !== currentPostId).slice(0, 3);
-            if (relatedPosts.length === 0) {
-                return '<p>More articles coming soon!</p>';
-            }
-            
-            return relatedPosts.map(post => `
-                <div class="related-post">
-                    <h5><a href="#post-${post.id}">${post.title}</a></h5>
-                    <p>By ${post.author} • ${post.date}</p>
-                </div>
-            `).join('');
-        }
-        
-        // Comment submission
-        function submitComment(postId) {
-            const name = document.getElementById(`comment-name-${postId}`).value;
-            const email = document.getElementById(`comment-email-${postId}`).value;
-            const content = document.getElementById(`comment-content-${postId}`).value;
-            
-            if (!name || !email || !content) {
-                alert('Please fill in all fields.');
-                return;
-            }
-            
-            const newComment = {
-                id: Date.now(),
-                postId: postId,
-                author: name,
-                email: email,
-                content: content,
-                date: new Date().toISOString().split('T')[0],
-                approved: false
-            };
-            
-            pendingComments.push(newComment);
-            
-            // Clear form
-            document.getElementById(`comment-name-${postId}`).value = '';
-            document.getElementById(`comment-email-${postId}`).value = '';
-            document.getElementById(`comment-content-${postId}`).value = '';
-            
-            alert('Thank you for your comment! It will be reviewed and published shortly.');
-            
-            // Track comment submission
-            gtag('event', 'comment_submit', {
-                event_category: 'Engagement',
-                event_label: 'Blog Comment'
-            });
-        }
-        
-        // Social sharing functions
-        function shareOnTwitter(title) {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent(title);
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-            
-            gtag('event', 'share', {
-                event_category: 'Social',
-                event_label: 'Twitter'
-            });
-        }
-        
-        function shareOnLinkedIn(title) {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-            
-            gtag('event', 'share', {
-                event_category: 'Social',
-                event_label: 'LinkedIn'
-            });
-        }
-        
-        function shareOnFacebook(title) {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-            
-            gtag('event', 'share', {
-                event_category: 'Social',
-                event_label: 'Facebook'
-            });
-        }
-        
-        // Admin panel functions
-        function openAdmin() {
-            document.getElementById('admin-panel').style.display = 'block';
-            updateAdminSections();
-        }
-        
-        function closeAdmin() {
-            document.getElementById('admin-panel').style.display = 'none';
-        }
-        
-        function showAdminSection(section) {
-            // Hide all sections
-            document.querySelectorAll('.admin-section').forEach(sec => sec.classList.remove('active'));
-            document.querySelectorAll('.admin-tab').forEach(tab => tab.classList.remove('active'));
-            
-            // Show selected section
-            document.getElementById(`admin-${section}`).classList.add('active');
-            event.target.classList.add('active');
-            
-            updateAdminSections();
-        }
-        
-        function updateAdminSections() {
-            updatePendingComments();
-            updateSubscribersList();
-        }
-        
-        function createPost() {
-            const title = document.getElementById('post-title').value;
-            const content = document.getElementById('post-content').value;
-            const author = document.getElementById('post-author').value;
-            
-            if (!title || !content || !author) {
-                document.getElementById('post-message').innerHTML = '<div class="error-message">Please fill in all fields.</div>';
-                return;
-            }
-            
-            const newPost = {
-                id: Date.now(),
-                title: title,
-                content: content,
-                author: author,
-                date: new Date().toISOString().split('T')[0],
-                timestamp: Date.now()
-            };
-            
-            blogPosts.push(newPost);
-            renderBlogPosts();
-            
-            // Clear form
-            document.getElementById('post-title').value = '';
-            document.getElementById('post-content').value = '';
-            document.getElementById('post-author').value = '';
-            
-            document.getElementById('post-message').innerHTML = '<div class="success-message">Post published successfully!</div>';
-            
-            // Track post creation
-            gtag('event', 'post_create', {
-                event_category: 'Content',
-                event_label: 'New Blog Post'
-            });
-        }
-        
-        function updatePendingComments() {
-            const container = document.getElementById('pending-comments');
-            if (pendingComments.length === 0) {
-                container.innerHTML = '<p>No pending comments.</p>';
-                return;
-            }
-            
-            container.innerHTML = pendingComments.map(comment => `
-                <div class="comment" style="margin-bottom: 1rem;">
-                    <div class="comment-author">${comment.author} (${comment.email})</div>
-                    <div class="comment-date">${comment.date}</div>
-                    <div class="comment-content">${comment.content}</div>
-                    <div style="margin-top: 1rem;">
-                        <button class="admin-btn" onclick="approveComment(${comment.id})" style="margin-right: 1rem; background: #28a745;">Approve</button>
-                        <button class="admin-btn" onclick="rejectComment(${comment.id})" style="background: #dc3545;">Reject</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        function approveComment(commentId) {
-            const commentIndex = pendingComments.findIndex(c => c.id === commentId);
-            if (commentIndex !== -1) {
-                const comment = pendingComments[commentIndex];
-                comment.approved = true;
-                comments.push(comment);
-                pendingComments.splice(commentIndex, 1);
-                
-                renderBlogPosts();
-                updatePendingComments();
-            }
-        }
-        
-        function rejectComment(commentId) {
-            const commentIndex = pendingComments.findIndex(c => c.id === commentId);
-            if (commentIndex !== -1) {
-                pendingComments.splice(commentIndex, 1);
-                updatePendingComments();
-            }
-        }
-        
-        function updateSubscribersList() {
-            const container = document.getElementById('subscribers-list');
-            if (subscribers.length === 0) {
-                container.innerHTML = '<p>No subscribers yet.</p>';
-                return;
-            }
-            
-            container.innerHTML = `
-                <p><strong>Total Subscribers: ${subscribers.length}</strong></p>
-                <div style="max-height: 300px; overflow-y: auto;">
-                    ${subscribers.map(sub => `
-                        <div style="padding: 1rem; border: 1px solid #eee; margin-bottom: 0.5rem; border-radius: 5px;">
-                            <strong>${sub.email}</strong> - Subscribed on ${sub.date}
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        }
-        
-        // SEO and performance optimization
-        function optimizeForSEO() {
-            // Add structured data for blog posts
-            const structuredData = {
-                "@context": "https://schema.org",
-                "@type": "Blog",
-                "name": "SaaS Insights",
-                "description": "Expert reviews and comparisons of the best SaaS tools",
-                "url": window.location.href,
-                "blogPost": blogPosts.map(post => ({
-                    "@type": "BlogPosting",
-                    "headline": post.title,
-                    "author": {
-                        "@type": "Person",
-                        "name": post.author
-                    },
-                    "datePublished": post.date,
-                    "description": post.content.substring(0, 160).replace(/<[^>]*>/g, '')
-                }))
-            };
-            
-            const script = document.createElement('script');
-            script.type = 'application/ld+json';
-            script.textContent = JSON.stringify(structuredData);
-            document.head.appendChild(script);
-        }
-        
-        // Initialize the blog
-        function initializeBlog() {
-            initializeSampleData();
-            renderBlogPosts();
-            optimizeForSEO();
-            
-            // Track page view
-            gtag('event', 'page_view', {
-                page_title: document.title,
-                page_location: window.location.href
-            });
-        }
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initializeBlog);
-        
-        // Handle form submissions with Enter key
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                if (e.target.id === 'newsletter-email') {
-                    subscribeNewsletter();
-                }
-            }
-        });
-        
-        // Lazy loading for better performance
-        function lazyLoadImages() {
-            const images = document.querySelectorAll('img[data-src]');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-            
-            images.forEach(img => imageObserver.observe(img));
-        }
-        
-        // Call lazy loading
-        lazyLoadImages();
-    </script>
+      `).join('');
+    }
+
+    // Add a new post
+    function addPost(title, author, content) {
+      const newPost = {
+        id: Date.now(),
+        title,
+        author,
+        date: getToday(),
+        content
+      };
+      blogPosts.unshift(newPost); // Add to start
+      renderBlogPosts();
+      renderAdminPosts();
+    }
+
+    // Remove a post by ID
+    function removePost(postId) {
+      blogPosts = blogPosts.filter(post => post.id !== postId);
+      renderBlogPosts();
+      renderAdminPosts();
+    }
+
+    // Handle new post form submission
+    document.getElementById('new-post-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('post-title').value.trim();
+      const author = document.getElementById('post-author').value.trim();
+      const content = document.getElementById('post-content').value.trim();
+      if (title && author && content) {
+        addPost(title, author, content);
+        this.reset();
+      }
+    });
+
+    // Initial render
+    renderBlogPosts();
+    renderAdminPosts();
+
+    // Expose removePost to global scope for inline onclick
+    window.removePost = removePost;
+  </script>
 </body>
 </html>
